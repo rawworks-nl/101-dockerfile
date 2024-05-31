@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CLEAN MARKUP = GOOD KARMA.
+      Hi source code lover,
+
+      you're a curious person and a fast learner ;)
+      Let's make something beautiful together. Contribute on Github:
+      https://github.com/webslides/webslides
+
+      Thanks,
+      @jlantunez.
+    -->
+
+    <!-- SEO -->
+    <title>PlatformEngineering TechSync: 101-dockerfile-essentials</title>
+    <meta name="description" content="Delving into the essentials of Dockerfiles, a fundamental building block in the realm of containerization and Platform Engineering.">
+
+    <!-- URL CANONICAL -->
+    <!-- <link rel="canonical" href="http://your-url.com/"> -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- CSS WebSlides -->
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/webslides.css">
+
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/svg-icons.css">
+
+    <!-- SOCIAL CARDS (ADD YOUR INFO) -->
+
+    <!-- FACEBOOK -->
+    <meta property="og:url" content="https://rawworks.nl/"> <!-- YOUR URL -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="PlatformEngineering TechSync: 101-dockerfile"> <!-- EDIT -->
+    <meta property="og:description" content="Delving into the essentials of Dockerfiles, a fundamental building block in the realm of containerization and Platform Engineering."> <!-- EDIT -->
+    <meta property="og:updated_time" content="2024-05-31T11:30:00"> <!-- EDIT -->
+    <meta property="og:image" content=""> <!-- EDIT -->
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content=""> <!-- EDIT -->
+    <meta name="twitter:creator" content=""> <!-- EDIT -->
+    <meta name="twitter:title" content="PlatformEngineering TechSync: 101-dockerfile"> <!-- EDIT -->
+    <meta name="twitter:description" content="Delving into the essentials of Dockerfiles, a fundamental building block in the realm of containerization and Platform Engineering."> <!-- EDIT -->
+    <meta name="twitter:image" content=""> <!-- EDIT -->
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" sizes="16x16" href="static/images/favicons/favicon.png">
+    <link rel="shortcut icon" sizes="32x32" href="static/images/favicons/favicon-32.png">
+    <link rel="apple-touch-icon icon" sizes="76x76" href="static/images/favicons/favicon-76.png">
+    <link rel="apple-touch-icon icon" sizes="120x120" href="static/images/favicons/favicon-120.png">
+    <link rel="apple-touch-icon icon" sizes="152x152" href="static/images/favicons/favicon-152.png">
+    <link rel="apple-touch-icon icon" sizes="180x180" href="static/images/favicons/favicon-180.png">
+    <link rel="apple-touch-icon icon" sizes="192x192" href="static/images/favicons/favicon-192.png">
+
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+
+  </head>
+  <body>
+    <header role="banner">
+      <nav role="navigation">
+        <p class="logo"><a href="index.html" title="WebSlides">WebSlides</a></p>
+        <ul>
+          <li class="github">
+            <a rel="external" href="https://github.com/webslides/webslides" title="Github">
+              <svg class="fa-github">
+                <use xlink:href="#fa-github"></use>
+              </svg>
+              <em>WebSlides</em>
+            </a>
+          </li>
+          <li class="twitter">
+            <a rel="external" href="https://twitter.com/webslides" title="Twitter">
+              <svg class="fa-twitter">
+                <use xlink:href="#fa-twitter"></use>
+              </svg>
+              <em>@WebSlides</em>
+            </a>
+          </li>
+          <!--  <li class="dribbble"><a rel="external" href="http://dribbble.com/webslides" title="Dribbble"><svg class="fa-dribbble"><use xlink:href="#fa-dribbble"></use></svg> <em>webslides</em></a></li> -->
+        </ul>
+      </nav>
+    </header>
+
+    <main role="main">
+      <article id="webslides" class="vertical">
+        <!-- Quick Guide
+          - Each parent <section> in the <article id="webslides"> element is an individual slide.
+          - Vertical sliding = <article id="webslides" class="vertical">
+          - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+        -->
+
+        <section>
+          <span class="background" style="background-image:url('./static/images/bg-docker.png')"></span>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap aligncenter">
+            <h1><strong>PlatformEngineering TechSync:</strong></h1><br><br><br><br>
+            <h2><strong>101 - Dockerfile</strong></h2><br><br>
+            <p class="text-intro">Delving into the essentials of Dockerfiles,<br>a fundamental building block in the realm of containerization.</p>
+            <br><br><br><br><br><br><br><br>
+              <a href="https://github.com/rawworks-nl" class="button zoomIn" title="RawWorks on Github">
+                <svg class="fa-external-link">
+                  <use xlink:href="#fa-external-link"></use>
+                </svg>
+                RawWorks on Github
+              </a>
+            </p>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+        <section>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap size-50 aligncenter">
+            <h2><strong>Agenda:</strong></h2>
+            <br>
+            <div class="bg-white shadow">
+              <ul class="flexblock reasons">
+                <li>
+                  <h2>Introduction to Docker and Dockerfiles</h2>
+                  <p>Understand the basics of Docker, containers, and the role of Dockerfiles in creating containerized applications.</p>
+                </li>
+                <li>
+                  <h2>Defining a Dockerfile</h2>
+                  <p>Step-by-step guidance on crafting a simple Dockerfile from scratch.</p>
+                </li>
+                <li>
+                  <h2>Best practices</h2>
+                  <p>Learn from best practices and pitfalls for writing efficient, secure, and maintainable Dockerfiles</p>
+                </li>
+              </ul>
+            </div>
+            <!-- .end .bg-white shadow -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+        <section>
+          <div class="wrap size-50 aligncenter">
+          
+            <div class="column">
+              <h4>
+                <svg class="fa-life-ring">
+                  <use xlink:href="#fa-life-ring"></use>
+                </svg>
+                <strong>References:</strong><br><br>
+              </h4>
+              <ul class="description">
+                <li></li>
+                <li><a href="https://docs.docker.com/reference/dockerfile/" target="_blank">Offical Dockerfile reference</a></li>
+                <li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/" target="_blank">Best practices</a>.</li>
+                <li><a href="https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/" target="_blank">Blog: dockerfile efficiency</a></li>
+                <li></li>
+              </ul>
+              <p>Remember; there is <a href="https://forums.docker.com/" target="_blank">a big community</a> of <a href="https://dockercommunity.slack.com/" target="_blank">people</a> who are always willing to help.</p>
+            </div>
+          </div>
+
+        </section>
+        <section class="slide-bottom">
+          <div class="wrap">
+            <div class="content-center text-serif">
+              <h2><strong>GNU/Linux on the rise!</strong></h2><br>
+                <img src="./static/images/docker_linux_vs_windows.png"><br><br>
+                <strong>Thanks for joining!</strong>
+                <a target="_blank" title="Share on Twitter" href="https://twitter.com/intent/tweet?text=Finally,%20everything%20I%20need%20to%20know%20on%20dockerfiles.">
+                  <svg class="fa-twitter">
+                    <use xlink:href="#fa-twitter"></use>
+                  </svg>
+                </a>
+              <p>Berry de Jager</p>
+            </div>
+            <!-- .end .content-right -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+      </article>
+      <!-- end article -->
+    </main>
+    <!-- end main -->
+
+   <!-- A global footer
+
+     <footer role="contentinfo">
+      <div class="wrap">
+        <p>An <a href="https://github.com/webslides/webslides">open source solution</a>, by <a href="https://twitter.com/webslides">@webslides</a>.</p>
+      </div>
+    </footer>  -->
+
+    <!-- Required -->
+    <script src="static/js/webslides.js"></script>
+    <script>
+      window.ws = new WebSlides();
+    </script>
+
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="static/js/svg-icons.js"></script>
+
+  </body>
+</html>
